@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Admin</h1>
+            <nav>
+                <button onclick="logout()">Logout</button>
+            </nav>
+        </header>
+        <aside>
+            <ul id="menu">
+                <li><a href="#dashboard" class="active" onclick="showSection('dashboard', this)">Dashboard</a></li>
+                <li><a href="#users" onclick="showSection('users', this)">Users</a></li>
+                <li><a href="#products" onclick="showSection('products', this)">Products</a></li>
+            </ul>
+        </aside>
+        <main>
+            <section id="dashboard" class="content active">
+                <h2>Dashboard</h2>
+                <canvas id="myChart"></canvas>
+            </section>
+            <section id="users" class="content">
+                <h2>Manage Users</h2>
+                <button id="addUser" onclick="toggleUserForm(true)">Add User</button>
+                <form id="userForm" style="display: none;" onsubmit="addUser(event)">
+                    <input type="text" id="username" placeholder="Enter Username" required>
+                    <button type="submit">Add</button>
+                    <button type="button" onclick="toggleUserForm(false)">Cancel</button>
+                </form>
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+            <section id="products" class="content">
+                <h2>Manage Products</h2>
+                <button id="addProduct" onclick="toggleProductForm(true)">Add Product</button>
+                <form id="productForm" style="display: none;" onsubmit="addProduct(event)">
+                    <input type="text" id="productName" placeholder="Enter Product Name" required>
+                    <input type="number" id="productPrice" placeholder="Enter Product Price" required>
+                    <button type="submit">Add</button>
+                    <button type="button" onclick="toggleProductForm(false)">Cancel</button>
+                </form>
+                <table id="productTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

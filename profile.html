@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="profil-containe">
+        <header>
+            <div>
+            <h1>My Profile</h1></div>
+            <nav>
+                <button onclick="logout()">Logout</button>
+            </nav>
+        </header>
+        <main>
+            <h2>Update your profile</h2>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <button type="submit">Update</button>
+            </form>
+        </main>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>

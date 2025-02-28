@@ -1,0 +1,300 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Body Style */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFC0CB; /* Light pink background */
+    padding: 0;
+}
+
+/* Container */
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+/* ===== Header ===== */
+header {
+    background-color: #000; /* Black header */
+    color: #FFC0CB; /* Light pink text */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 28px;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header nav button {
+    background: #FFC0CB; /* Pink button */
+    border: none;
+    padding: 12px 20px;
+    color: #000; /* Black text */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+header nav button:hover {
+    background: #FFB6C1; /* Slightly lighter pink */
+}
+
+/* ===== Login Page ===== */
+.login-container {
+    background: #000; /* Black background */
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 100px;
+    animation: fadeIn 1s ease-out;
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    color: #FFC0CB; /* Pink heading */
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #FFC0CB; /* Pink label */
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #FFC0CB; /* Pink border */
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.login-container input:focus {
+    border-color: #FFB6C1; /* Lighter pink focus */
+    outline: none;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FFC0CB; /* Pink button */
+    border: none;
+    color: #000; /* Black text */
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #FFB6C1; /* Slightly lighter pink */
+}
+
+.login-container .footer-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #FFC0CB; /* Pink footer text */
+    font-style: italic;
+}
+
+/* ===== Sidebar ===== */
+aside {
+    float: left;
+    width: 220px;
+    background: #000; /* Black sidebar */
+    padding: 20px;
+    border-right: 1px solid #FFC0CB; /* Pink border */
+    height: 100vh;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin: 15px 0;
+}
+
+aside ul li a {
+    text-decoration: none;
+    color: #FFC0CB; /* Pink link */
+    padding: 12px;
+    display: block;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+aside ul li a:hover,
+aside ul li a.active {
+    background: #FFC0CB; /* Pink hover background */
+    color: #000; /* Black text */
+}
+
+/* ===== Main Content ===== */
+main {
+    margin-left: 240px;
+    padding: 20px;
+    animation: slideIn 0.5s ease-out;
+}
+
+main h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #000; /* Black heading */
+}
+
+/* ===== Forms ===== */
+form input[type="text"],
+form input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #FFC0CB; /* Pink border */
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+    border-color: #FFB6C1; /* Lighter pink focus */
+    outline: none;
+}
+
+
+form button {
+    padding: 12px 20px;
+    background: #000; /* Pink button */
+    border: none;
+    color: #FFC0CB; /* Black text */
+    border-radius: 8px;
+    cursor: pointer;
+    
+}
+
+form button:hover {
+    background: #FFB6C1; /* Slightly lighter pink */
+}
+
+/* ===== Tables ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table th,
+table td {
+    border: 1px solid #FFC0CB; /* Pink border */
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background: #000; /* Black header */
+    color: #FFC0CB; /* Pink text */
+}
+
+table tr:nth-child(even) {
+    background: #FFEBEF; /* Light pink row */
+}
+
+table tr:hover {
+    background: #FFD6DD; /* Slightly darker pink */
+}
+
+table button {
+    background: #740d1e; /* Pink button */
+    border: none;
+    padding: 8px 12px;
+    color: #000 ; /* Black text */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+table button:hover {
+    background: #FFB6C1; /* Lighter pink */
+}
+
+
+.content {
+    display: none; /* Hide all sections by default */
+}
+.content.active {
+    display: block; /* Show only the active section */
+}
+
+
+
+/* ===== Charts ===== */
+canvas {
+    width: 100%; /* Canvas width adjusted to fit better */
+    height: 500px; /* Fixed height for a larger graph */
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 12px; /* Rounded corners for the canvas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow around the graph */
+    background: linear-gradient(135deg, #f0f0f0, #dcdcdc); /* Gradient background */
+}
+
+/* Optional: Add styles for the chart axes and labels */
+.chart-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #fff; /* Background color for the chart container */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for a floating effect */
+    margin-top: 30px; /* Adjust space between the chart and other elements */
+}
+
+/* Axes Styling (if using Chart.js or similar library) */
+.chartjs-render-monitor {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
+.chartjs-gridline {
+    stroke: rgba(0, 0, 0, 0.1); /* Lighter grid lines */
+}
+
+.chartjs-axis {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+

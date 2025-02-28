@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+    <div class="manage-products-container">
+        <header>
+            <h1>Products</h1>
+            <nav>
+                <button onclick="logout()">Logout</button>
+            </nav>
+        </header>
+
+        <div class="products-list">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="https://www.watchswiss.com/wp-content/uploads/2022/06/image_component_portrait_2.jpg" alt="Product 1">
+                <div class="product-info">
+                    <h2>Watch Rolex</h2>
+                    <p class="price">$15.99</p>
+                    <p class="quantity">In Stock: 10</p>
+                    <input type="number" id="quantity1" min="1" max="10" value="1">
+                    <button class="add-to-cart" onclick="addToCart('Watch Rolex', 15.99, document.getElementById('quantity1').value)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="https://www.journaldugeek.com/app/uploads/2024/12/Apple-iPhone-16-Pro-Max-Test.jpg" alt="Product 2">
+                <div class="product-info">
+                    <h2>iphone 16_pro</h2>
+                    <p class="price">$22.49</p>
+                    <p class="quantity">In Stock: 7</p>
+                    <input type="number" id="quantity2" min="1" max="7" value="1">
+                    <button class="add-to-cart" onclick="addToCart('iphone 16_pro', 22.49, document.getElementById('quantity2').value)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="https://plouise.co.uk/cdn/shop/files/Plouise-Brush-Bundle_1.jpg?v=1684857658&width=320" alt="Product 3">
+                <div class="product-info">
+                    <h2>Brush Bundle</h2>
+                    <p class="price">$30.00</p>
+                    <p class="quantity">In Stock: 5</p>
+                    <input type="number" id="quantity3" min="1" max="5" value="1">
+                    <button class="add-to-cart" onclick="addToCart('Brush Bundle', 30.00, document.getElementById('quantity3').value)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="https://koreaavenue.com/cdn/shop/products/Korea_Avenue_Dress_Red_4_800x.jpg?v=1558107758" alt="Product 4">
+                <div class="product-info">
+                    <h2>Summer Dress</h2>
+                    <p class="price">$18.75</p>
+                    <p class="quantity">In Stock: 12</p>
+                    <input type="number" id="quantity4" min="1" max="12" value="1">
+                    <button class="add-to-cart" onclick="addToCart('Summer Dress', 18.75, document.getElementById('quantity4').value)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="https://devotedstore.com/cdn/shop/files/21.png?v=1711236966" alt="Product 5">
+                <div class="product-info">
+                    <h2>Jacket</h2>
+                    <p class="price">$45.99</p>
+                    <p class="quantity">In Stock: 3</p>
+                    <input type="number" id="quantity5" min="1" max="3" value="1">
+                    <button class="add-to-cart" onclick="addToCart('Jacket', 45.99, document.getElementById('quantity5').value)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="https://5.imimg.com/data5/DC/EV/RU/SELLER-84060521/necklace-16-.jpg" alt="Product 6">
+                <div class="product-info">
+                    <h2>Diamond Necklace</h2>
+                    <p class="price">$12.50</p>
+                    <p class="quantity">In Stock: 8</p>
+                    <input type="number" id="quantity6" min="1" max="8" value="1">
+                    <button class="add-to-cart" onclick="addToCart('Diamond Necklace', 12.50, document.getElementById('quantity6').value)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="complete-order">
+            <button onclick="completeOrder()">Complete Order</button>
+        </div>
+        <footer>
+            <p>Manage your products efficiently.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Shopping cart array to store added products
+        const cart = [];
+
+        // Function to add product to the cart
+        function addToCart(productName, price, quantity) {
+    const product = {
+        name: productName,
+        price: price,
+        quantity: parseInt(quantity),
+        total: price * quantity
+    };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the product already exists in the cart
+    const existingProduct = cart.find(item => item.name === product.name);
+
+    if (existingProduct) {
+        existingProduct.quantity += product.quantity;
+        existingProduct.total = existingProduct.price * existingProduct.quantity;
+    } else {
+        cart.push(product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(`${productName} added to your cart!`);
+}
+
+    function completeOrder() {
+            // You can add additional checks or processes here
+            window.location.href = "check.html"; // Redirect to the check page
+        }
+        function logout() {
+    document.body.style.margin = "0"; // Reset body margin
+    document.body.style.padding = "0"; // Reset body padding
+    document.body.style.height = "100vh"; // Ensure the body takes the full viewport height
+  
+    document.body.innerHTML = `
+        <div style="text-align: center; color:#FFC0CB; background-color:rgb(0, 0, 0); height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0; padding: 0;">
+            <h1>You have been logged out.</h1>
+            <button onclick="window.location.href='login.html'" style="padding: 10px 20px; background-color:rgb(240, 146, 146); color: #fff; border: none; cursor: pointer;">Login Again</button>
+        </div>
+    `;
+  }
+    </script>
+</body>
+</html>

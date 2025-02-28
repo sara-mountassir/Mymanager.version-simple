@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Bill</title>
+  <style>
+    body {
+      background-color: rgba(3, 75, 3, 0.863);
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    header button {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .container {
+      padding: 20px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .cart-item {
+      margin-bottom: 10px;
+    }
+    .cart-item button {
+      margin-left: 10px;
+      padding: 2px 5px;
+      cursor: pointer;
+    }
+    .cart-item button:hover {
+      background-color: lightgray;
+    }
+    .total {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    button.confirm {
+      margin-top: 10px;
+      padding: 10px 15px;
+      cursor: pointer;
+      background-color: rgb(0, 3, 0);
+      color:white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Bill</h1>
+    <button onclick="logout()">Logout</button>
+  </header>
+  <div class="container">
+    <h2>Items in Your Cart</h2>
+    <div id="cart"></div>
+    <div class="total" id="total"></div>
+    <button class="confirm" onclick="confirmOrder()">Confirm Order</button>
+  </div>
+
+  <script>
+    // Load Cart from Local Storage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Save Cart to Local Storage
+    function saveCart() {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    // Add Item to Cart
+    function addItem(name, price) {
+      const itemIndex = cart.findIndex(item => item.name === name);
+      if (itemIndex > -1) {
+        cart[itemIndex].quantity++;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      saveCart();
+      displayCartItems();
+    }
+
+    // Remove Item from Cart
+    function removeItem(name) {
+      const itemIndex = cart.findIndex(item => item.name === name);
+      if (itemIndex > -1) {
+        cart[itemIndex].quantity--;
+        if (cart[itemIndex].quantity <= 0) {
+          cart.splice(itemIndex, 1);
+        }
+      }
+      saveCart();
+      displayCartItems();
+    }
+
+    // Delete Item Entirely
+    function deleteItem(name) {
+      cart = cart.filter(item => item.name !== name);
+      saveCart();
+      displayCartItems();
+    }
+
+    // Display Cart Items
+    function displayCartItems() {
+      const cartContainer = document.getElementById("cart");
+      const totalContainer = document.getElementById("total");
+      cartContainer.innerHTML = "";
+      let total = 0;
+
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        cartContainer.innerHTML += `
+          <div class="cart-item">
+            ${item.name} x ${item.quantity} - $${item.price.toFixed(2)} each
+            <button onclick="addItem('${item.name}', ${item.price})">+</button>
+            <button onclick="removeItem('${item.name}')">-</button>
+            <button onclick="deleteItem('${item.name}')">Remove</button>
+          </div>
+        `;
+      });
+
+      totalContainer.innerText = `Total Amount: $${total.toFixed(2)}`;
+    }
+
+    // Confirm Order
+    function confirmOrder() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      alert("Order confirmed! Total Amount: $" + calculateTotal());
+      cart = []; // Clear the cart after confirming the order
+      saveCart();
+      displayCartItems();
+    }
+
+    // Calculate Total Amount
+    function calculateTotal() {
+      return cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
+    }
+
+    // Logout Function
+    function logout() {
+      alert("You have been logged out!");
+      window.location.href = "login.html"; // Replace with your login page URL
+    }
+
+    // Initialize Cart Display on Page Load
+    displayCartItems();
+  </script>
+</body>
+</html>

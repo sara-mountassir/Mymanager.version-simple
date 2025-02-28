@@ -1,0 +1,145 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #FFC0CB; /* Pink text */
+}
+
+/* Profile container styling */
+.profil-containe {
+    background: #fff;
+    padding: 40px 50px; /* Space inside the container */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    width: 100%;
+    max-width: 450px; /* Limiting max width for better layout */
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out; /* Fade-in effect for page load */
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #ee697f; /* Pink heading */
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* Navigation button (logout) */
+nav button {
+    background-color: #000; /* Black button */
+    border: none;
+    color: #FFC0CB; /* Pink text */
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+nav button:hover {
+    background-color: #FFC0CB; /* Pink hover effect */
+    color: #000; /* Black text on hover */
+}
+
+/* Main section */
+main {
+    text-align: center;
+}
+
+/* Update Profile heading */
+main h2 {
+    color: #eb4b66; /* Pink color */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Form group styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Label styling */
+.form-group label {
+    margin-bottom: 5px;
+    color: #e94661; /* Pink text */
+    font-size: 16px;
+}
+
+/* Input styling */
+input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #FFC0CB; /* Pink border */
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    color: #000; /* Black text */
+}
+
+/* Focused input styling */
+input:focus {
+    border-color: #FFC0CB; /* Pink border on focus */
+    outline: none;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+    background-color: #FFC0CB; /* Pink button */
+    color: black; /* Black text */
+    font-size: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #000; /* Black on hover */
+    color: #FFC0CB; /* Pink text on hover */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive styling */
+@media screen and (max-width: 600px) {
+    .profil-containe {
+        padding: 20px 30px; /* Reduced padding for small screens */
+    }
+
+    header h1 {
+        font-size: 28px; /* Smaller heading on smaller screens */
+    }
+
+    main h2 {
+        font-size: 20px; /* Adjust heading size */
+    }
+}
