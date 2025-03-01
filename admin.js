@@ -148,14 +148,14 @@ function initializeChart() {
   }
 }
 function logout() {
-    document.body.style.margin = "0"; // Reset body margin
-    document.body.style.padding = "0"; // Reset body padding
-    document.body.style.height = "100vh"; // Ensure the body takes the full viewport height
+  document.body.style.margin = "0"; // Reset body margin
+  document.body.style.padding = "0"; // Reset body padding
+  document.body.style.height = "100vh"; // Ensure the body takes the full viewport height
 
-    document.body.innerHTML = `
-        <div style="text-align: center; color:#e91010; background-color:#FFC0CB; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0; padding: 0;">
-            <h1>You have been logged out.</h1>
-            <button onclick="window.location.href='login.html'" style="padding: 10px 20px; background-color:rgb(2, 2, 2); color: #fff; border: none; cursor: pointer;">Login Again</button>
-        </div>
-    `;
+  document.body.innerHTML = `
+      <div style="text-align: center; color:#FFC0CB; background-color:rgb(0, 0, 0); height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0; padding: 0;">
+          <h1>You have been logged out.</h1>
+          <button onclick="window.location.href='login.html'" style="padding: 10px 20px; background-color:rgb(240, 146, 146); color: #fff; border: none; cursor: pointer;">Login Again</button>
+      </div>
+  `;
 }
