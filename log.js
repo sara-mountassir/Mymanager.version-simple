@@ -1,6 +1,21 @@
 const users = [
   { username: "sara", password: "sara123", role: "admin" },
 ];
+document.addEventListener("DOMContentLoaded", function () {
+  const envelope = document.querySelector(".envelope");
+  const loginBox = document.querySelector(".box");
+
+  if (!envelope) {
+      console.error("Error: Element '.envelope' not found!");
+      return;
+  }
+
+  envelope.addEventListener("click", function () {
+      
+      loginBox.classList.toggle("active");
+  });
+});
+
 
 // Login function
 function login(event) {
@@ -21,6 +36,7 @@ function login(event) {
     window.location.href = "user.html";
   }
 }
+
 
 // Add event listener for the login form submission
 document.getElementById("loginForm").addEventListener("submit", login);
